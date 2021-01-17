@@ -7,7 +7,7 @@ use Statamic\Providers\AddonServiceProvider;
 class HelpscoutBeaconServiceProvider extends AddonServiceProvider
 {
   protected $middlewareGroups = [
-      'web' => [
+      'statamic.cp' => [
           HelpscoutBeaconMiddleware::class,
       ],
   ];
