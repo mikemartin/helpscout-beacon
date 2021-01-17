@@ -28,7 +28,7 @@ class HelpscoutBeaconMiddleware
     {
         $beacon = view('helpscout::beacon', [
             'beacon_id' => config('helpscout.beacon_id'),
-            'beacon_secret_key' => config('helpscout.beacon_secret_key');
+            'beacon_secret_key' => config('helpscout.beacon_secret_key')
         ])->render();
 
         $this->response->setContent(
