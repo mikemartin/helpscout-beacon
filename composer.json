@@ -1,0 +1,25 @@
+{
+    "name": "mikemartin/helpscout-beacon",
+    "description": "Make it easy for clients to get help and access their support history.",
+    "type": "statamic-addon",
+    "license": "MIT",
+    "require": {
+        "statamic/cms": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mikemartin\\HelpscoutBeacon\\": "src"
+        }
+    },
+    "extra": {
+        "statamic": {
+            "name": "Helpscout Beacon",
+            "description": "Make it easy for clients to get help and access their support history."
+        },
+        "laravel": {
+            "providers": [
+                "Mikemartin\\HelpscoutBeacon\\HelpscoutBeaconServiceProvider"
+            ]
+        }
+    }
+}
