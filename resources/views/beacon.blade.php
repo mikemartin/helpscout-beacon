@@ -10,7 +10,7 @@
       signature: "{{ hash_hmac(
         'sha256',
         $user->email(),
-        '{{ $beacon_secret_key }}'
+        '{ $beacon_secret_key }'
       ) }}"
     });
 </script>

@@ -3,9 +3,8 @@
 namespace Mikemartin\HelpscoutBeacon;
 
 use Closure;
-use Statamic\Support\Str;
-use Illuminate\Http\Response;
-use Illuminate\Support\HtmlString;
+use Statamic\Facades\User;
+use Statamic\Facades\Config;
 
 class HelpscoutBeaconMiddleware
 {
@@ -30,7 +29,8 @@ class HelpscoutBeaconMiddleware
     {
         $beacon = view('helpscout::beacon', [
             'beacon_id' => config('helpscout.beacon_id'),
-            'beacon_secret_key' => config('helpscout.beacon_secret_key')
+            'beacon_secret_key' => config('helpscout.beacon_secret_key'),
+            'user' => User::current()
         ])->render();
 
         $this->response->setContent(
