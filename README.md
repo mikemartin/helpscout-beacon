@@ -17,7 +17,7 @@ The HelpScout Beacon for Statamic makes it easy for you to provide support to yo
 2. Publish the config file.
 
     ```
-    php artisan vendor:publish --provider=Mikemartin\HelpscoutBeacon\HelpscoutBeaconServiceProvider
+    php artisan vendor:publish --provider="Mikemartin\HelpscoutBeacon\HelpscoutBeaconServiceProvider"
     ```
 
 3. Add your **Beacon ID** to your `.env` file. In your HelpScout Beacon Settings, head to the Installation tab and copy the Beacon ID from the web installation code.
