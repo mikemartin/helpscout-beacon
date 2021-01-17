@@ -16,7 +16,7 @@ class HelpscoutBeaconMiddleware
 
         $content = $this->response->getContent();
 
-        if (!$request->user()) {
+        if (!auth()->user()) {
           return $this->response;
         }
 
@@ -34,7 +34,7 @@ class HelpscoutBeaconMiddleware
         $beacon = view('helpscout::beacon', [
             'beacon_id' => config('helpscout.beacon_id'),
             'beacon_secret_key' => config('helpscout.beacon_secret_key'),
-            'user' => $request->user()
+            'user' => auth()->user()
         ])->render();
 
         $this->response->setContent(
