@@ -16,21 +16,25 @@ class HelpscoutBeaconMiddleware
 
         $content = $this->response->getContent();
 
+        if (!$request->user()) {
+          return $this->response;
+        }
+
         if (($pos = strripos($content, '</body>')) === false) {
             return $this->response;
         }
 
-        $this->injectHelpscoutBeacon($content, $pos);
+        $this->injectHelpscoutBeacon($request, $content, $pos);
 
         return $this->response;
     }
 
-    protected function injectHelpscoutBeacon($content, $pos)
+    protected function injectHelpscoutBeacon($request, $content, $pos)
     {
         $beacon = view('helpscout::beacon', [
             'beacon_id' => config('helpscout.beacon_id'),
             'beacon_secret_key' => config('helpscout.beacon_secret_key'),
-            'user' => User::current()
+            'user' => $request->user()
         ])->render();
 
         $this->response->setContent(
