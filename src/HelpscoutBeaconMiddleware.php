@@ -15,6 +15,8 @@ class HelpscoutBeaconMiddleware
     {
         $this->response = $next($request);
 
+        $content = $this->response->getContent();
+
         if (($pos = strripos($content, '</body>')) === false) {
             return $this->response;
         }
