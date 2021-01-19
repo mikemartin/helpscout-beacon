@@ -14,19 +14,13 @@ The HelpScout Beacon for Statamic makes it easy for you to provide support to yo
     composer require mikemartin/helpscout-beacon
     ```
 
-2. Publish the config file.
-
-    ```
-    php artisan vendor:publish --provider="Mikemartin\HelpscoutBeacon\HelpscoutBeaconServiceProvider"
-    ```
-
-3. Add your **Beacon ID** to your `.env` file. In your HelpScout Beacon Settings, head to the Installation tab and copy the Beacon ID from the web installation code.
+2. Add your **Beacon ID** to your `.env` file. In your HelpScout Beacon Settings, head to the Installation tab and copy the Beacon ID from the web installation code.
 
     ```
     HELPSCOUT_BEACON_ID=your_beacon_id
     ```
 
-4. Add your **Beacon Secret Key** to your `.env` file. In your HelpScout Beacon Settings, head to the Contact tab and enable the “Support history security” toggle. Your secret key will be revealed. Make sure to Save at the bottom of the page.
+3. Add your **Beacon Secret Key** to your `.env` file. In your HelpScout Beacon Settings, head to the Contact tab and enable the “Support history security” toggle. Your secret key will be revealed. Make sure to Save at the bottom of the page.
 
     ```
     HELPSCOUNT_BEACON_SECRET=your_beacon_secret_key
