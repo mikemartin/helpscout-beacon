@@ -7,12 +7,15 @@ script.addEventListener('load', () => {
 
   let helpscout = Statamic.$config.get('helpscout')
 
+  if (!helpscout || !helpscout.beacon_id) {
+    return false;
+  }
+
+  if(helpscout.avatar) {
+    helpscout.user["avatar"] = helpscout.avatar;
+  }
+
   window.Beacon('init', helpscout.beacon_id);
 
-  window.Beacon('identify', {
-      name: helpscout.name,
-      email: helpscout.email,
-      user: helpscout.user,
-      signature: helpscout.signature
-  });
+  window.Beacon('identify', helpscout.user);
 });
