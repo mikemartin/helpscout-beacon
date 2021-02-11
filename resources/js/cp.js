@@ -12,7 +12,7 @@ script.addEventListener('load', () => {
   }
 
   if(helpscout.avatar) {
-    helpscout.user["avatar"] = helpscout.avatar;
+    helpscout.user["avatar"] = helpscout.user["website"] + helpscout.avatar;
   }
 
   window.Beacon('init', helpscout.beacon_id);
