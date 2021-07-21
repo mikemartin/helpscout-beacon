@@ -2,6 +2,7 @@
 
 namespace Mikemartin\HelpscoutBeacon;
 
+use Mikemartin\HelpscoutBeacon\Tags\Beacon;
 use Illuminate\Support\Facades\View;
 use Statamic\Facades\User;
 use Statamic\Providers\AddonServiceProvider;
@@ -17,6 +18,11 @@ class ServiceProvider extends AddonServiceProvider
 
   protected $publishables = [
     __DIR__.'/../resources/js/beacon.js' => 'js/beacon.js',
+    __DIR__.'/../resources/js/member.js' => 'js/member.js',
+  ];
+
+  protected $tags = [
+    Beacon::class,
   ];
 
   public function boot()
