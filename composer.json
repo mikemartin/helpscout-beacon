@@ -4,7 +4,7 @@
     "type": "statamic-addon",
     "license": "MIT",
     "require": {
-        "statamic/cms": "^3.0",
+        "statamic/cms": "^3.0|^4.0",
         "ext-json": "*"
     },
     "autoload": {
