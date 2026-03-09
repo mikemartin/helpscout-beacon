@@ -1,21 +1,17 @@
-let script = document.createElement('script');
-script.src = '/vendor/helpscout-beacon/js/beacon.js';
+let helpscout = Statamic.$config.get('helpscout');
 
-document.body.appendChild(script);
-
-script.addEventListener('load', () => {
-
-  let helpscout = Statamic.$config.get('helpscout')
-
-  if (!helpscout || !helpscout.beacon_id) {
-    return false;
+if (helpscout && helpscout.beacon_id) {
+  if (helpscout.avatar) {
+    helpscout.user['avatar'] = helpscout.user['website'] + helpscout.avatar;
   }
 
-  if(helpscout.avatar) {
-    helpscout.user["avatar"] = helpscout.user["website"] + helpscout.avatar;
-  }
+  let script = document.createElement('script');
+  script.src = helpscout.beacon_script_url;
 
-  window.Beacon('init', helpscout.beacon_id);
+  script.addEventListener('load', () => {
+    window.Beacon('init', helpscout.beacon_id);
+    window.Beacon('identify', helpscout.user);
+  });
 
-  window.Beacon('identify', helpscout.user);
-});
+  document.body.appendChild(script);
+}
